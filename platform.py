@@ -39,7 +39,7 @@ class MountKelvinPlatform:
         platforms = entity_platform.async_get_platforms(hass, DOMAIN)
         platform = next(plat for plat in platforms if self._platform_type in plat.platform.__name__)
         old_entities = platform.entities
-        registry = await entity_registry.async_get_registry(hass)
+        registry = entity_registry.async_get(hass)
 
         ret = []
         for entity in new_entities:
